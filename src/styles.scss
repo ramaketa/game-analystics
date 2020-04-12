@@ -1,0 +1,53 @@
+@import 'themes';
+
+@import '~@nebular/theme/styles/globals';
+
+@include nb-install() {
+  @include nb-theme-global();
+};
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+
+a {
+  text-decoration: none !important;
+}
+
+app-footer,
+app-header{
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+
+  align-items: center;
+}
+
+app-header {
+  justify-content: space-between;
+}
+
+app-footer {
+  justify-content: center;
+}
+
+ul.menu {
+  display: flex;
+  flex-direction: row;
+
+  align-content: center;
+
+  list-style: none;
+
+  margin-bottom: 0;
+
+  li {
+    margin: 0 3rem;
+
+    cursor: pointer;
+
+    a,
+    a:hover {
+      color: #ffffff !important;
+    }
+  }
+}

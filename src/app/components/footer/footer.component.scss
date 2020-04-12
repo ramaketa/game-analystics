@@ -1,0 +1,18 @@
+.social-media {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  ul.menu {
+    justify-content: center;
+  }
+
+  & nb-icon {
+    font-size: 2rem;
+  }
+}
+
+.follow-us {
+  margin: 0 1rem;
+}
+
