@@ -1,7 +1,13 @@
 <nb-card class="game-analys">
-  <nb-card-header>
-    Выберите команду и количесто матчей!
-  </nb-card-header>
-  <nb-card-body>
-  </nb-card-body>
+
+    <ng-template #rt let-team="result" let-t="term">
+      <img [src]="team['logo_url']" *ngIf="team['logo_url']" class="mr-1" style="width: 32px">
+      <img src="assets/images/dota-2.png" *ngIf="!team['logo_url']" class="mr-1" style="width: 32px">
+      <ngb-highlight [result]="team.name" [term]="t"></ngb-highlight>
+    </ng-template>
+
+    <label for="typeahead-template">Выбор команды:</label>
+    <input id="typeahead-template" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [resultTemplate]="rt"
+           [inputFormatter]="formatter" />
+
 </nb-card>

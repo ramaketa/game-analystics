@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {NbThemeModule, NbLayoutModule, NbIconModule, NbCardModule} from '@nebular/theme';
+import {NbThemeModule, NbLayoutModule, NbIconModule, NbCardModule, NbAutocompleteModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -13,6 +13,8 @@ import { Dota2Component } from './components/dota2/dota2.component';
 import { CsGoComponent } from './components/cs-go/cs-go.component';
 import { AboutComponent } from './components/about/about.component';
 import { HttpClientModule } from '@angular/common/http';
+import {NgbTypeaheadModule} from "@ng-bootstrap/ng-bootstrap";
+import {FormsModule} from "@angular/forms";
 
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
@@ -41,6 +43,9 @@ const appRoutes: Routes = [
     NbIconModule,
     RouterModule.forRoot(appRoutes),
     NbCardModule,
+    NbAutocompleteModule,
+    NgbTypeaheadModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
