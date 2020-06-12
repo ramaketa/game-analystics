@@ -7,5 +7,6 @@
     <li><a routerLink="dota2">Dota2</a></li>
     <li><a routerLink="cs-go">Cs:Go</a></li>
     <li><a href="">Contacts</a></li>
+    <li><nb-toggle (checkedChange)="changeTheme($event)" [(ngModel)]="this.darkTheme"></nb-toggle></li>
   </ul>
 </div>

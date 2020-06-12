@@ -1,4 +1,8 @@
 .action-menu {
   font-size: 2rem;
   text-transform: uppercase;
+
+  & a {
+    line-height: 2rem;
+  }
 }

@@ -1,5 +1,19 @@
-.game-analys {
-  width: 35%;
+.main-container {
+  width: 80%;
+
+  nb-card-body {
+    display: flex;
+    flex-direction: row;
+  }
 
   text-align: center;
+}
+
+.team-pick {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 45%;
+  margin: 2%;
 }

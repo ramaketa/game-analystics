@@ -5,7 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {NbThemeModule, NbLayoutModule, NbIconModule, NbCardModule, NbAutocompleteModule} from '@nebular/theme';
+import {
+  NbThemeModule,
+  NbLayoutModule,
+  NbIconModule,
+  NbCardModule,
+  NbAutocompleteModule,
+  NbSelectModule, NbInputModule, NbToastrService, NbToastrModule, NbToggleModule
+} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -46,6 +53,10 @@ const appRoutes: Routes = [
     NbAutocompleteModule,
     NgbTypeaheadModule,
     FormsModule,
+    NbSelectModule,
+    NbInputModule,
+    NbToastrModule.forRoot(),
+    NbToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

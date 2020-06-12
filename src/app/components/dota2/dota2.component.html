@@ -1,13 +1,20 @@
-<nb-card class="game-analys">
+<nb-card accent="info" class="main-container">
+  <nb-card-header>TEAM PICK</nb-card-header>
+  <nb-card-body>
 
-    <ng-template #rt let-team="result" let-t="term">
-      <img [src]="team['logo_url']" *ngIf="team['logo_url']" class="mr-1" style="width: 32px">
-      <img src="assets/images/dota-2.png" *ngIf="!team['logo_url']" class="mr-1" style="width: 32px">
-      <ngb-highlight [result]="team.name" [term]="t"></ngb-highlight>
-    </ng-template>
+    <nb-card class="team-pick">
+      <nb-card-header>TEAM 1:</nb-card-header>
+      <nb-card-body>
+        <input type="text" nbInput fullWidth shape="round" placeholder="TEAM 1">
+      </nb-card-body>
+    </nb-card>
 
-    <label for="typeahead-template">Выбор команды:</label>
-    <input id="typeahead-template" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [resultTemplate]="rt"
-           [inputFormatter]="formatter" />
+    <nb-card class="team-pick">
+      <nb-card-header>TEAM 2:</nb-card-header>
+      <nb-card-body>
+        <input type="text" nbInput fullWidth shape="round" placeholder="TEAM 2">
+      </nb-card-body>
+    </nb-card>
 
+  </nb-card-body>
 </nb-card>
