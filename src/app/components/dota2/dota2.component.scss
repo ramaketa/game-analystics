@@ -4,6 +4,8 @@
   nb-card-body {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
   }
 
   text-align: center;
@@ -15,5 +17,5 @@
   justify-content: center;
 
   width: 45%;
-  margin: 2%;
+  margin: 3%;
 }
