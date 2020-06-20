@@ -8,9 +8,11 @@ import { Team } from "../shared/team";
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient
+  ) {}
 
   getAllteams(): Observable<Team[]> {
-    return this.http.get<Team[]>('https://api.opendota.com/api/teams');
+    return this.http.get<Team[]>('/api/teams/all');
   }
 }
