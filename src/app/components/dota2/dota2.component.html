@@ -5,14 +5,50 @@
     <nb-card class="team-pick">
       <nb-card-header>TEAM 1:</nb-card-header>
       <nb-card-body>
-        <input type="text" nbInput fullWidth shape="round" placeholder="TEAM 1">
+
+        <input [ngModel]="firstTeam"
+               (ngModelChange)="onModelChange($event)"
+               nbInput
+               fullWidth
+               shape="round"
+               type="text"
+               placeholder="Pick first team"
+               [nbAutocomplete]="firstTeamControl"/>
+
+        <nb-autocomplete #firstTeamControl>
+
+          <nb-option *ngFor="let team of filteredNgModelOptions$ | async" [value]="team.name">
+            <img [src]="team['logo_url']" *ngIf="team['logo_url']">
+            <img src="assets/images/dota-2.png" *ngIf="!team['logo_url']">
+            <span>{{ team.name }}</span>
+          </nb-option>
+
+        </nb-autocomplete>
+
       </nb-card-body>
     </nb-card>
 
     <nb-card class="team-pick">
       <nb-card-header>TEAM 2:</nb-card-header>
       <nb-card-body>
-        <input type="text" nbInput fullWidth shape="round" placeholder="TEAM 2">
+        <input [ngModel]="secondTeam"
+               (ngModelChange)="onModelChange($event)"
+               nbInput
+               fullWidth
+               shape="round"
+               type="text"
+               placeholder="Pick second team"
+               [nbAutocomplete]="secondTeamControl"/>
+
+        <nb-autocomplete #secondTeamControl>
+
+          <nb-option *ngFor="let team of filteredNgModelOptions$ | async" [value]="team.name">
+            <img [src]="team['logo_url']" *ngIf="team['logo_url']">
+            <img src="assets/images/dota-2.png" *ngIf="!team['logo_url']">
+            <span>{{ team.name }}</span>
+          </nb-option>
+
+        </nb-autocomplete>
       </nb-card-body>
     </nb-card>
 

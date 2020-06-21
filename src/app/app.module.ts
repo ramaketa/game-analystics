@@ -21,7 +21,7 @@ import { CsGoComponent } from './components/cs-go/cs-go.component';
 import { AboutComponent } from './components/about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 import {NgbTypeaheadModule} from "@ng-bootstrap/ng-bootstrap";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
@@ -39,25 +39,26 @@ const appRoutes: Routes = [
     CsGoComponent,
     AboutComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    NbThemeModule.forRoot({name: 'dark'}),
-    NbLayoutModule,
-    NbEvaIconsModule,
-    NbIconModule,
-    RouterModule.forRoot(appRoutes),
-    NbCardModule,
-    NbAutocompleteModule,
-    NgbTypeaheadModule,
-    FormsModule,
-    NbSelectModule,
-    NbInputModule,
-    NbToastrModule.forRoot(),
-    NbToggleModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        NbThemeModule.forRoot({name: 'dark'}),
+        NbLayoutModule,
+        NbEvaIconsModule,
+        NbIconModule,
+        RouterModule.forRoot(appRoutes),
+        NbCardModule,
+        NbAutocompleteModule,
+        NgbTypeaheadModule,
+        FormsModule,
+        NbSelectModule,
+        NbInputModule,
+        NbToastrModule.forRoot(),
+        NbToggleModule,
+        ReactiveFormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

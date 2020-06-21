@@ -1,11 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ApiService} from "../../services/api.service";
 import {Team} from "../../shared/team";
-import {Observable} from "rxjs";
-import {FormControl} from "@angular/forms";
-import {debounceTime, map} from "rxjs/operators";
 import {NbToastrService} from "@nebular/theme";
-import {positionService} from "@ng-bootstrap/ng-bootstrap/util/positioning";
+import {Observable, of} from "rxjs";
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'app-dota2',
@@ -15,8 +13,10 @@ import {positionService} from "@ng-bootstrap/ng-bootstrap/util/positioning";
 export class Dota2Component implements OnInit {
 
   teams: Team[];
-  public model: any;
+  firstTeam: Team;
+  secondTeam: Team;
   isLoading = true;
+  filteredNgModelOptions$: Observable<Team[]>;
 
   constructor(
     private apiService: ApiService,
@@ -35,6 +35,15 @@ export class Dota2Component implements OnInit {
           this.toastrService.warning('ERROR', 'GET TEAMS LIST');
           this.isLoading = false;
         });
+    this.filteredNgModelOptions$ = of(this.teams);
   }
 
+  private filter(value: string): Team[] {
+    const filterValue = value.toLowerCase();
+    return this.teams.filter(optionValue => optionValue.name.toLowerCase().includes(filterValue));
+  }
+
+  onModelChange(value) {
+    this.filteredNgModelOptions$ = of(this.filter(value));
+  }
 }
