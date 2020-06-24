@@ -13,8 +13,11 @@ import {map} from "rxjs/operators";
 export class Dota2Component implements OnInit {
 
   teams: Team[];
+  firstTeamName: string;
+  secondTeamName: string;
   firstTeam: Team;
   secondTeam: Team;
+  selectedTeam: Team;
   isLoading = true;
   filteredNgModelOptions$: Observable<Team[]>;
 
@@ -38,12 +41,27 @@ export class Dota2Component implements OnInit {
     this.filteredNgModelOptions$ = of(this.teams);
   }
 
-  private filter(value: string): Team[] {
-    const filterValue = value.toLowerCase();
-    return this.teams.filter(optionValue => optionValue.name.toLowerCase().includes(filterValue));
+  private filter(value): Team[] {
+    if (typeof value !== "string") {
+      // this.onModelChange(value);
+    } else {
+      const filterValue = value.toLowerCase();
+      return this.teams.filter(optionValue => optionValue.name.toLowerCase().includes(filterValue));
+    }
   }
 
   onModelChange(value) {
     this.filteredNgModelOptions$ = of(this.filter(value));
+  }
+
+  setTeam(teamNumber, teamName) {
+    for (const team of this.teams) {
+      if (team.name === teamName) {
+        this.selectedTeam = team;
+        break;
+      }
+    }
+    teamNumber === 'firstTeam' ? this.firstTeam = this.selectedTeam : this.secondTeam = this.selectedTeam;
+    this.filteredNgModelOptions$ = of(this.teams);
   }
 }

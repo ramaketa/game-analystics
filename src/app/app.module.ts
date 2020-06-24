@@ -11,7 +11,7 @@ import {
   NbIconModule,
   NbCardModule,
   NbAutocompleteModule,
-  NbSelectModule, NbInputModule, NbToastrService, NbToastrModule, NbToggleModule
+  NbSelectModule, NbInputModule, NbToastrService, NbToastrModule, NbToggleModule, NbAccordionModule, NbButtonModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FooterComponent } from './components/footer/footer.component';
@@ -39,26 +39,28 @@ const appRoutes: Routes = [
     CsGoComponent,
     AboutComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        NbThemeModule.forRoot({name: 'dark'}),
-        NbLayoutModule,
-        NbEvaIconsModule,
-        NbIconModule,
-        RouterModule.forRoot(appRoutes),
-        NbCardModule,
-        NbAutocompleteModule,
-        NgbTypeaheadModule,
-        FormsModule,
-        NbSelectModule,
-        NbInputModule,
-        NbToastrModule.forRoot(),
-        NbToggleModule,
-        ReactiveFormsModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NbThemeModule.forRoot({name: 'dark'}),
+    NbLayoutModule,
+    NbEvaIconsModule,
+    NbIconModule,
+    RouterModule.forRoot(appRoutes),
+    NbCardModule,
+    NbAutocompleteModule,
+    NgbTypeaheadModule,
+    FormsModule,
+    NbSelectModule,
+    NbInputModule,
+    NbToastrModule.forRoot(),
+    NbToggleModule,
+    ReactiveFormsModule,
+    NbAccordionModule,
+    NbButtonModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

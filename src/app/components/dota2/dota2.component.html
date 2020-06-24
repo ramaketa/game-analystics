@@ -6,8 +6,9 @@
       <nb-card-header>TEAM 1:</nb-card-header>
       <nb-card-body>
 
-        <input [ngModel]="firstTeam"
+        <input [ngModel]="firstTeamName"
                (ngModelChange)="onModelChange($event)"
+               [disabled]="teams"
                nbInput
                fullWidth
                shape="round"
@@ -15,7 +16,7 @@
                placeholder="Pick first team"
                [nbAutocomplete]="firstTeamControl"/>
 
-        <nb-autocomplete #firstTeamControl>
+        <nb-autocomplete #firstTeamControl (selectedChange)="setTeam('firstTeam', $event)">
 
           <nb-option *ngFor="let team of filteredNgModelOptions$ | async" [value]="team.name">
             <img [src]="team['logo_url']" *ngIf="team['logo_url']">
@@ -24,6 +25,23 @@
           </nb-option>
 
         </nb-autocomplete>
+
+        <nb-accordion class="team-info" *ngIf="this.firstTeam">
+          <nb-accordion-item>
+          <nb-accordion-item-header>
+            <img [src]="firstTeam.logo_url" [alt]="firstTeam.name">
+            <span>{{firstTeam.name}}</span>
+          </nb-accordion-item-header>
+          <nb-accordion-item-body>
+            <ul>
+              <li>Рейтинг: {{firstTeam.rating}}</li>
+              <li>Побед: {{firstTeam.wins}}</li>
+              <li>Поражений: {{firstTeam.losses}}</li>
+              <li>Последний матч: {{firstTeam.last_match_time * 1000 | date: 'dd.MM.yyyy'}}</li>
+            </ul>
+            </nb-accordion-item-body>
+          </nb-accordion-item>>
+        </nb-accordion>
 
       </nb-card-body>
     </nb-card>
@@ -31,8 +49,9 @@
     <nb-card class="team-pick">
       <nb-card-header>TEAM 2:</nb-card-header>
       <nb-card-body>
-        <input [ngModel]="secondTeam"
+        <input [ngModel]="secondTeamName"
                (ngModelChange)="onModelChange($event)"
+               [disabled]="teams"
                nbInput
                fullWidth
                shape="round"
@@ -40,7 +59,7 @@
                placeholder="Pick second team"
                [nbAutocomplete]="secondTeamControl"/>
 
-        <nb-autocomplete #secondTeamControl>
+        <nb-autocomplete #secondTeamControl (selectedChange)="setTeam('secondTeam', $event)">
 
           <nb-option *ngFor="let team of filteredNgModelOptions$ | async" [value]="team.name">
             <img [src]="team['logo_url']" *ngIf="team['logo_url']">
@@ -49,8 +68,29 @@
           </nb-option>
 
         </nb-autocomplete>
+
+        <nb-accordion class="team-info" *ngIf="this.secondTeam">
+          <nb-accordion-item>
+            <nb-accordion-item-header>
+              <img [src]="secondTeam.logo_url" [alt]="secondTeam.name">
+              <span>{{secondTeam.name}}</span>
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ul>
+                <li>Рейтинг: {{secondTeam.rating}}</li>
+                <li>Побед: {{secondTeam.wins}}</li>
+                <li>Поражений: {{secondTeam.losses}}</li>
+                <li>Последний матч: {{secondTeam.last_match_time * 1000 | date: 'dd.MM.yyyy'}}</li>
+              </ul>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+        </nb-accordion>
+
       </nb-card-body>
     </nb-card>
 
   </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="control" shape="rectangle" [disabled]="!firstTeam || !secondTeam">Рассчитать</button>
+  </nb-card-footer>
 </nb-card>
