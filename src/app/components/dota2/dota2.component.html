@@ -28,24 +28,29 @@
 
         <nb-accordion class="team-info" *ngIf="this.firstTeam">
           <nb-accordion-item>
-          <nb-accordion-item-header>
-            <img [src]="firstTeam.logo_url" [alt]="firstTeam.name">
-            <span>{{firstTeam.name}}</span>
-          </nb-accordion-item-header>
-          <nb-accordion-item-body>
-            <ul>
-              <li>Рейтинг: {{firstTeam.rating}}</li>
-              <li>Побед: {{firstTeam.wins}}</li>
-              <li>Поражений: {{firstTeam.losses}}</li>
-              <li>Последний матч: {{firstTeam.last_match_time * 1000 | date: 'dd.MM.yyyy'}}</li>
-            </ul>
+            <nb-accordion-item-header>
+              <img [src]="firstTeam.logo_url" [alt]="firstTeam.name">
+              <span>{{firstTeam.name}}</span>
+            </nb-accordion-item-header>
+            <nb-accordion-item-body>
+              <ul>
+                <li>Рейтинг: {{firstTeam.rating}}</li>
+                <li>Побед: {{firstTeam.wins}}</li>
+                <li>Поражений: {{firstTeam.losses}}</li>
+                <li>Последний матч: {{firstTeam.last_match_time * 1000 | date: 'dd.MM.yyyy'}}</li>
+              </ul>
             </nb-accordion-item-body>
-          </nb-accordion-item>>
+          </nb-accordion-item>
+          >
         </nb-accordion>
 
       </nb-card-body>
     </nb-card>
 
+    <div class="game-count">
+      <input id="game-count" [(ngModel)]="gameCount" fullWidth nbInput type="text" nbTooltip="Количество матчей">
+      <label for="game-count">Game count</label>
+    </div>
     <nb-card class="team-pick">
       <nb-card-header>TEAM 2:</nb-card-header>
       <nb-card-body>
@@ -89,8 +94,36 @@
       </nb-card-body>
     </nb-card>
 
+    <nb-accordion class="result-table">
+      <nb-accordion-item [expanded]="secondTeam">
+        <nb-accordion-item-header>Статистические сведения</nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <table class="table table-striped table-hover" [class]="dark ? 'table-dark' : ''" *ngIf="secondTeam">
+            <thead>
+            <tr>
+              <th scope="col">{{this.firstTeam.name}}</th>
+              <th scope="col">{{gameCount}}</th>
+              <th scope="col">{{this.secondTeam.name}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td [class] = "this.firstTeam.rating > this.secondTeam.rating ? 'primary-text' : ''">{{this.firstTeam.rating}}</td>
+              <td>WIN RATE</td>
+              <td [class] = "this.firstTeam.rating < this.secondTeam.rating ? 'primary-text' : ''">{{this.secondTeam.rating}}</td>
+            </tr>
+            <tr>
+            </tr>
+            </tbody>
+          </table>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+    </nb-accordion>
+
   </nb-card-body>
+
   <nb-card-footer>
-    <button nbButton status="control" shape="rectangle" [disabled]="!firstTeam || !secondTeam">Рассчитать</button>
+    <button nbButton status="success" shape="rectangle" [disabled]="!firstTeam || !secondTeam">Рассчитать</button>
   </nb-card-footer>
 </nb-card>
+

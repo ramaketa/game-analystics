@@ -16,10 +16,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem('theme') === 'dark') {
-      this.changeTheme(true);
+      this.themeService.changeTheme('dark');
       this.darkTheme = true;
     } else {
-      this.changeTheme(false);
+      this.themeService.changeTheme('default');
       this.darkTheme = false;
     }
   }
@@ -32,5 +32,6 @@ export class HeaderComponent implements OnInit {
       localStorage.setItem('theme', 'default');
       this.themeService.changeTheme('default');
     }
+    location.reload();
   }
 }

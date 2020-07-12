@@ -4,6 +4,8 @@
   nb-card-body {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+
     justify-content: space-around;
     align-items: baseline;
   }
@@ -15,6 +17,14 @@
     }
   }
 
+  .game-count {
+    width: 10%;
+
+    & label {
+      padding-top: 10px;
+    }
+  }
+
   text-align: center;
 }
 
@@ -23,9 +33,7 @@
   align-items: center;
   justify-content: center;
 
-  width: 45%;
-  margin: 3%;
-
+  width: 40%;
 
   & nb-card-body {
     display: flex;
@@ -47,6 +55,23 @@
     }
   }
 
+}
+
+.result-table {
+  width: 95%;
+
+  & .table-dark {
+    background-color: #222b45 !important;
+  }
+
+  & .primary-text {
+    color: #b31616;
+    font-size: 1.4rem;
+  }
+
+  & table thead tr th:first-child {
+    width: 33%;
+  }
 }
 
 img {

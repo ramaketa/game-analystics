@@ -6,12 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  NbThemeModule,
-  NbLayoutModule,
-  NbIconModule,
-  NbCardModule,
-  NbAutocompleteModule,
-  NbSelectModule, NbInputModule, NbToastrService, NbToastrModule, NbToggleModule, NbAccordionModule, NbButtonModule
+    NbThemeModule,
+    NbLayoutModule,
+    NbIconModule,
+    NbCardModule,
+    NbAutocompleteModule,
+    NbSelectModule,
+    NbInputModule,
+    NbToastrService,
+    NbToastrModule,
+    NbToggleModule,
+    NbAccordionModule,
+    NbButtonModule,
+    NbTooltipModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FooterComponent } from './components/footer/footer.component';
@@ -39,28 +46,29 @@ const appRoutes: Routes = [
     CsGoComponent,
     AboutComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    NbThemeModule.forRoot({name: 'dark'}),
-    NbLayoutModule,
-    NbEvaIconsModule,
-    NbIconModule,
-    RouterModule.forRoot(appRoutes),
-    NbCardModule,
-    NbAutocompleteModule,
-    NgbTypeaheadModule,
-    FormsModule,
-    NbSelectModule,
-    NbInputModule,
-    NbToastrModule.forRoot(),
-    NbToggleModule,
-    ReactiveFormsModule,
-    NbAccordionModule,
-    NbButtonModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        NbThemeModule.forRoot({name: 'dark'}),
+        NbLayoutModule,
+        NbEvaIconsModule,
+        NbIconModule,
+        RouterModule.forRoot(appRoutes),
+        NbCardModule,
+        NbAutocompleteModule,
+        NgbTypeaheadModule,
+        FormsModule,
+        NbSelectModule,
+        NbInputModule,
+        NbToastrModule.forRoot(),
+        NbToggleModule,
+        ReactiveFormsModule,
+        NbAccordionModule,
+        NbButtonModule,
+        NbTooltipModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

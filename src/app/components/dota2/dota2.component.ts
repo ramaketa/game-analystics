@@ -13,6 +13,8 @@ import {map} from "rxjs/operators";
 export class Dota2Component implements OnInit {
 
   teams: Team[];
+  dark: boolean;
+  gameCount: number;
   firstTeamName: string;
   secondTeamName: string;
   firstTeam: Team;
@@ -28,6 +30,8 @@ export class Dota2Component implements OnInit {
   }
 
   ngOnInit(): void {
+    this.dark = Boolean(localStorage.getItem('theme') === 'dark');
+
     this.apiService.getAllteams()
       .subscribe(data => {
           this.teams = data;
